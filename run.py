@@ -35,7 +35,6 @@ def webCrawler():
                 text = cell.text.replace('&nbsp;', '')
                 list_of_cells.append(text)
             list_of_rows.append(list_of_cells)
-        list_of_rows.append([sys.argv[1]])
     except:
         print("Parsing error. The format of the url must have changed: {}".format(url))
         return False
@@ -55,6 +54,8 @@ def saveFile(list_of_rows):
         return False
 
 if __name__ == "__main__":
+    #validate command line args here. You're able to input them and they'll be used in the exe script
+
     removeFile()
     list_of_rows = webCrawler()
     if not list_of_rows:
